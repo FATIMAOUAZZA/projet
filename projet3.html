@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MORIQUA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Réinitialisation de base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f8f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* En-tête */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #222;
+            color: white;
+            padding: 15px 30px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo{
+            margin-right:30px;
+        }
+        .site-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin-right: 20px;
+        }
+        .search-bar {
+            flex-grow: 1;
+            margin: 0 15px;
+        }
+        .search-bar input {
+            width: 100%;
+            max-width: 400px;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #555;
+            background-color: #fff;
+        }
+        .menu-icons {
+            display: flex;
+            align-items: center;
+        }
+        .menu-icons img {
+            width: 25px;
+            height: 25px;
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        /* Bannière */
+        #titre {
+            color: white;
+            background-color: #4F8075;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .banner {
+            width: 100%;
+            display: block;
+        }
+
+        /* Conteneur principal */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        /* Sections avec images et textes */
+        .section {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .section img {
+            width: 50%;
+            height: auto;
+            object-fit: cover;
+        }
+        .section-content {
+            padding: 30px;
+            flex: 1;
+        }
+        .section-content h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .section-content p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .section-content a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #57e6ad;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .section-content a:hover {
+            background-color:#3DDAB7;
+        }
+
+        /* Pied de page */
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            font-size: 14px;
+            margin-top: 40px;
+        }
+
+        /* Alignement des images */
+        #reverse {
+            flex-direction: row-reverse;
+        }
+        .footer h2 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .social-icons img {
+            width: 25px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .footer-links {
+            margin: 20px 0;
+        }
+        .footer-links a {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        .footer-bottom {
+            margin-top: 15px;
+            font-size: 12px;
+        }
+        .carousel-container {
+            background-color: #b8dbc2;
+            text-align: center;
+            padding: 20px 0;
+        }
+        .carousel-title {
+            font-style: italic;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        .carousel-card {
+            background-color: white;
+            width: 220px;
+            margin: 0 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            overflow: hidden;
+        }
+        .carousel-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .carousel-card p {
+            font-size: 14px;
+            margin: 10px 0;
+            padding: 0 10px;
+        }
+        .carousel-arrow {
+            font-size: 30px;
+            color: #333;
+            cursor: pointer;
+        }
+        .carousel-arrow:hover {
+            color: #57e6ad;
+        }
+        .carousel-indicators {
+            margin-top: 15px;
+        }
+        .indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin: 0 5px;
+            background-color: #ccc;
+            cursor: pointer;
+        }
+        .indicator.active {
+            background-color: black;
+        }
+   
+    </style>
+</head>
+<body>
+    <!-- En-tête -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="image/LOGO.png" style="width: 30px;" alt="logo" class="logo"> 
+            <span class="site-name">MORIQUA</span>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher...">
+        </div>
+        <div class="menu-icons">
+            <img src="image/location.png" alt="Adresse">
+            <img src="image/user.png" alt="Profil">
+            <img src="image/Heart.png" alt="Favoris">
+            <img src="image/shopping.png" alt="Panier">    
+        </div>
+    </header>
+
+    <!-- Bannière -->
+    <h3 id="titre">TRENDING | TRADITIONNAL | MODERNE</h3>
+    <img src="image/MORIQUA_BACK.jpg" alt="MORIQUA_BACK" class="banner">
+
+    <!-- Contenu principal -->
+    <main class="container">
+        <!-- Section 1 -->
+        <section class="section">
+            <img src="image/1.jfif" alt="Rich Textures">
+            <div class="section-content">
+                <p>
+                    Discover the rich textures, intricate patterns, and deep-rooted history woven into each piece of our traditional
+                     collection. Perfect for special occasions, cultural celebrations, or simply embracing your heritage in style.
+                </p>
+                <a href="#">Découvrir maintenant</a>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="section" id="reverse">
+            <img src="image/3.jpg" alt="Style Contemporain">
+            <div class="section-content">
+                <p>
+                    Embrace contemporary cuts, vibrant colors, and versatile designs that blend comfort with a modern edge.                 </p>
+                    <a href="#">Explorer Plus</a>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section">
+            <img src="image/2.jpg" alt="Tenue Quotidienne">
+            <div class="section-content">
+                <p>
+                    These pieces are ideal for everyday wear, weekend outings, and adding a fresh twist to your wardrobe.
+                </p>
+                <a href="#">Explorer Plus</a>
+            </div>
+        </section> <div class="carousel-container">
+            <h3 class="carousel-title">TRENDING : NEW SEASON STYLE</h3>
+            <div class="carousel">
+                <div class="carousel-arrow">&lt;</div>
+                <div class="carousel-card">
+                    <img src="image/PIC1 (2).jfif" alt="Men's Casual">
+                    <p>Men’s Casual Shacket – Stylish, minimal, with functional pockets</p>
+                </div>
+                <div class="carousel-card">
+                    <img src="image/pic2.jfif" alt="Elegant Moroccan Jabador">
+                    <p>Elegant Moroccan Jabador – Traditional green embroidery, flowing design</p>
+                </div>
+                <div class="carousel-card">
+                    <img src="image/pic3.jfif" alt="Modern Minimalist Look">
+                    <p>Modern Minimalist Look – Cream sweater, white pants</p>
+                </div>
+                <div class="carousel-arrow">&gt;</div>
+            </div>
+            <div class="carousel-indicators">
+                <span class="indicator active"></span>
+                <span class="indicator"></span>
+                <span class="indicator"></span>
+            </div>
+        </div>
+    
+        
+    
+    
+    </main>
+    <footer class="footer">
+        <h2>MORIQUA</h2>
+        <div class="social-icons">
+            <img src="image/social.png" alt="Instagram">
+            <img src="image/facebook.png" alt="Facebook">
+            <img src="image/twitter.png" alt="Twitter">
+            <img src="image/visa.png" alt="Visa">
+            <img src="image/mastercard.png" alt="MasterCard">
+            <img src="image/paypal.png" alt="PayPal">
+        </div>
+        <div class="footer-links">
+            
+            <h4 style="display:inline;">Help and information</h4>
+          <br>  <pre >help Dilivery & return SiteMap</pre>
+<h4 style="display:inline;">About us</h4>
+<br><pre >About us Careers at MoriQua</pre>
+<h4 style="display:inline;">Shopping From</h4><br><pre style="display:inline;">you’re in Change it to</pre>
+
+        </div>
+        <div class="footer-bottom">
+            &copy; 2023 MORIQUA. Tous droits réservés.
+        </div>
+    </footer>
+
+</body>
+</html>
+
+
+
+  
